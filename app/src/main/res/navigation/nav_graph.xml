@@ -5,17 +5,17 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/addTaskFragment"
-        android:name="com.example.tasknew.fragments.AddTaskFragment"
-        android:label="AddTaskFragment" >
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.tasknew.fragments.AddNoteFragment"
+        android:label="AddNoteFragment" >
         <action
             android:id="@+id/action_addTaskFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editTaskFragment"
-        android:name="com.example.tasknew.fragments.EditTaskFragment"
-        android:label="EditTaskFragment" >
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.tasknew.fragments.EditNoteFragment"
+        android:label="EditNoteFragment" >
         <action
             android:id="@+id/action_editTaskFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -26,9 +26,14 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_addTaskFragment"
-            app:destination="@id/addTaskFragment" />
+            app:destination="@id/addNoteFragment" />
         <action
             android:id="@+id/action_homeFragment_to_editTaskFragment"
-            app:destination="@id/editTaskFragment" />
+            app:destination="@id/editNoteFragment" />
     </fragment>
+
+    <argument
+        android:name="note"
+        app:argType="com.example.tasknew.model.Note"
+        app:nullable="true"/>
 </navigation>
