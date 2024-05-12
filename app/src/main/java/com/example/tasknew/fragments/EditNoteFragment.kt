@@ -14,6 +14,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.tasknew.MainActivity
 import com.example.tasknew.R
 import com.example.tasknew.databinding.FragmentEditTaskBinding
@@ -30,9 +31,9 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_task), MenuProvider{
 
     private  lateinit var notesViewModel: NoteViewModel
     private  lateinit var currentNote: Note
+    private val args:EditNoteFragmentArgs by navArgs()
 
 
-    // private val args:EditTaskFragment by navArgs() //
 
 
 
@@ -48,11 +49,13 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_task), MenuProvider{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this , viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         notesViewModel = (activity as MainActivity).noteViewModel
-       // currentNote = args.note!!//
+       currentNote = args.note!!
 
         binding.editNoteTitle.setText(currentNote.noteTitle)
         binding.editNoteDesc.setText(currentNote.noteDesc)

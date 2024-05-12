@@ -51,7 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         setupHomeRecyclerView()
 
         binding.addNoteFab.setOnClickListener{
-           it.findNavController().navigate(R.id.action_homeFragment_to_addTaskFragment)
+           it.findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
     }
 
@@ -73,8 +73,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             adapter = noteAdapter
-
         }
+
+
 
         activity?.let{
             notesViewModel.getAllNotes().observe(viewLifecycleOwner){note ->

@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tasknew.databinding.ActivityMainBinding
-import com.example.tasknew.databinding.NoteLayoutBinding
 
+import com.example.tasknew.databinding.NoteLayoutBinding
 import com.example.tasknew.fragments.HomeFragmentDirections
+
+
 import com.example.tasknew.model.Note
 
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
@@ -41,13 +42,13 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-      val currentNote = differ.currentList[position]
+        val currentNote = differ.currentList[position]
 
         holder.itemBinding.noteTitle.text = currentNote.noteTitle
         holder.itemBinding.noteDesc.text = currentNote.noteDesc
 
         holder.itemView.setOnClickListener {
-           val direction = HomeFragmentDirections.actionHomeFragmentToEditTaskFragment(currentNote)
+            val direction = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(currentNote)
             it.findNavController().navigate(direction)
         }
     }
